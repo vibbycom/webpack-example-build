@@ -11,7 +11,7 @@ module.exports = {
     alias: {
       vbUtils: path.resolve(__dirname, 'src/utilities/')
     },
-    extensions: ['.js']
+    extensions: ['.js', '.styl']
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -19,6 +19,27 @@ module.exports = {
     library: '[name]-lib',
     libraryTarget: 'umd'
   },
+  module: {
+    rules: [
+      {
+        test: /\.styl$/,
+        loader: 'style-loader!css-loader!stylus-loader'
+      },
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: { presets: ['env'] }
+        }
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    })
+  ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     publicPath: '/',
@@ -27,10 +48,5 @@ module.exports = {
     index: 'index.html',
     open: true
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'src/index.html'
-    })
-  ]
 };
 
