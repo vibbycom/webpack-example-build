@@ -1,4 +1,5 @@
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -19,15 +20,17 @@ module.exports = {
     libraryTarget: 'umd'
   },
   devServer: {
-    contentBase: path.join(__dirname),
-    publicPath: '/static/',
+    contentBase: path.join(__dirname, 'dist'),
+    publicPath: '/',
     compress: true,
     port: 9000,
     index: 'index.html',
-    open: true,
-    historyApiFallback: {
-      index: 'index.html'
-    }
-  }
+    open: true
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    })
+  ]
 };
 
