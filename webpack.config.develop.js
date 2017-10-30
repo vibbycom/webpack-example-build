@@ -1,4 +1,5 @@
-var path = require('path');
+var path = require('path')
+var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
@@ -30,7 +31,7 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: { presets: ['env'] }
+          options: { presets: ['react', 'env'] }
         }
       }
     ]
@@ -38,6 +39,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html'
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "commons",
+      // (the commons chunk name)
+    
+      filename: "commons.js",
+      // (the filename of the commons chunk)
     })
   ],
   devServer: {
