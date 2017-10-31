@@ -10,7 +10,8 @@ module.exports = {
   devtool: 'inline-source-map',
   resolve: {
     alias: {
-      vbUtils: path.resolve(__dirname, 'src/utilities/')
+      vbUtils: path.resolve(__dirname, 'src/utilities/'),
+      vbStyle: path.resolve(__dirname, 'src/style/')
     },
     extensions: ['.js', '.sss']
   },
