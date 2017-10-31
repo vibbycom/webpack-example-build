@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "watch": "./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js",
-    "develop": "./node_modules/.bin/webpack --config webpack.config.dev.js",
-    "production": "./node_modules/.bin/webpack --config webpack.config.prod.js"
+    "dev": "./node_modules/.bin/webpack --config webpack.config.dev.js",
+    "prod": "./node_modules/.bin/webpack --config webpack.config.prod.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
