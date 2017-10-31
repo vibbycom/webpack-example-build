@@ -12,7 +12,7 @@ module.exports = {
     alias: {
       vbUtils: path.resolve(__dirname, 'src/utilities/')
     },
-    extensions: ['.js', '.styl']
+    extensions: ['.js', '.sss']
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -23,8 +23,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.styl$/,
-        loader: 'style-loader!css-loader!stylus-loader'
+        test: /\.sss$/,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { modules: true, importLoaders: 1 } },
+          'postcss-loader?parser=sugarss'
+        ]
       },
       {
         test: /\.jsx?$/,
