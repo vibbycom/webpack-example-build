@@ -1,14 +1,11 @@
 import React from 'react'
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom'
-import createBrowserHistory from 'history/createBrowserHistory'
 import Home from './views/Home'
 import Admin from './views/admin'
-
-const customHistory = createBrowserHistory()
 
 const Routes = () => (
   <Router>

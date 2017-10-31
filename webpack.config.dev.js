@@ -17,9 +17,10 @@ module.exports = merge(
     devServer: {
       contentBase: path.join(__dirname, 'dist'),
       publicPath: '/',
+      historyApiFallback: true,
+      index: 'index.html',
       compress: true,
       port: 9000,
-      index: 'index.html',
       open: true
     },
   }
